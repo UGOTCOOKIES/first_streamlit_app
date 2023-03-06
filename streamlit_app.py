@@ -6,8 +6,8 @@ First Streamlit App for Snowflake Badge 2 Data Builders Application Workshop
 
 import streamlit as st
 
-streamlit.title('My Parents New Healthy Diner')
-streamlit.text('Testing')
+st.title('My Parents New Healthy Diner')
+st.text('Testing')
 st.text('Omega 3 & Blueberry Oatmeal \n Kale, Spinach & Rocket Soothie \n Hard-Boiled Free-Range Egg')
         
 
