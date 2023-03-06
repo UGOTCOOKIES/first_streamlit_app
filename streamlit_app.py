@@ -5,14 +5,15 @@ First Streamlit App for Snowflake Badge 2 Data Builders Application Workshop
 """
 
 import streamlit as st
+import pandas
 
-
+#Create the menu and display as text 
 st.title('My Mom\'s New Healthy Diner')
 st.header('Breakfast Favorites')
 st.text('🥣 Omega 3 & Blueberry Oatmeal \n🥗 Kale, Spinach & Rocket Soothie \n🐔 Hard-Boiled Free-Range Egg \n🥑🍞 Avocado Toast')
 st.header('Fruit Smoothies')
 st.text('🍌🥭Friendly Neighbourhood Banana Strawberry Smoothie')
- 
-import pandas
+
+#Use python pandas to read csv file and pull the data from csv into a strealit dataframe object to be displayed
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-streamlit.dataframe(my_fruit_list)
+stt.dataframe(my_fruit_list)
