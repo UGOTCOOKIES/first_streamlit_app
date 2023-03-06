@@ -4,7 +4,7 @@ First Streamlit App for Snowflake Badge 2 Data Builders Application Workshop
 06/03/23
 """
 
-import streamlit
+import streamlit as st
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.text('Testing')
