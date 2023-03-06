@@ -16,8 +16,14 @@ st.text('🍌🥭Friendly Neighbourhood Banana Strawberry Smoothie')
 
 #Use python pandas to read csv file and pull the data from csv into a strealit dataframe object to be displayed
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-st.dataframe(my_fruit_list)
+my_fruit_list = my_fruit_list.set_index('Fruit')
 
 #Add a pick list so users can pick which fruits to add
 st.multiselect("Pick some fruits:", list(my_fruit_list.index))
+
+#Display the table on the page
+st.dataframe(my_fruit_list)
+
+
+
 
