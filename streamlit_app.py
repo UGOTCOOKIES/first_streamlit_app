@@ -6,6 +6,7 @@ First Streamlit App for Snowflake Badge 2 Data Builders Application Workshop
 
 import streamlit as st
 import pandas
+import requests
 
 #Create the menu and display as text 
 st.title('My Mom\'s New Healthy Diner')
@@ -25,6 +26,9 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #Display the table on the page
 st.dataframe(fruits_to_show)
 
-
+#Add the requests python package library
+st.header('Fruityvice Fruit Advice!')
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response).json()
 
 
