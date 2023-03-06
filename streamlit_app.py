@@ -16,4 +16,4 @@ st.text('🍌🥭Friendly Neighbourhood Banana Strawberry Smoothie')
 
 #Use python pandas to read csv file and pull the data from csv into a strealit dataframe object to be displayed
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-stt.dataframe(my_fruit_list)
+st.dataframe(my_fruit_list)
