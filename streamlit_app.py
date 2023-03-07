@@ -32,14 +32,18 @@ st.dataframe(fruits_to_show)
 st.header('Fruityvice Fruit Advice!')
 
 #Create a fruit_choice text input to get user input on choice of fruit to display
-fruit_choice = st.text_input('What fruit would you like information about?', 'Kiwi')
-st.write('The user entered', fruit_choice)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+try: 
+  fruit_choice = st.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    st.error("Please select a fruit to get information.")
+  else: 
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    #Takes the json version of the API response and normalize it, then output it to the streamlit as a table with dataframe
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    st.dataframe(fruityvice_normalized)
 
-#Takes the json version of the API response and normalize it, then output it to the streamlit as a table with dataframe
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-st.dataframe(fruityvice_normalized)
-
+except URLError as e:
+  st.error()
 #Don't run anything past here while we troubleshoot
 st.stop()
 
