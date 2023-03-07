@@ -31,9 +31,8 @@ st.dataframe(fruits_to_show)
 #Create function
 def get_fruityvice_data(this_fruit_choice):
      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-    #Takes the json version of the API response and normalize it, then output it to the streamlit as a table with dataframe
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    return fruityvice_normalized
+     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+     return fruityvice_normalized
   
 #New Section to display fruityvice api response
 st.header('Fruityvice Fruit Advice!') 
