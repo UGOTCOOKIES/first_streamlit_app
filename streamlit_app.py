@@ -39,10 +39,15 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 st.dataframe(fruityvice_normalized)
 
+#Query Snowflake
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 st.header("The fruit load list contains:")
 st.dataframe(my_data_rows)
+
+#Add second text entry box to allow the user to add a fruit to the list
+add_my_fruit = st.text_input('What fruit would you like to add?', 'Kiwi')
+st.write('Thanks for adding ', add_my_fruit)
 
